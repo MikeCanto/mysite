@@ -8,22 +8,22 @@ from django.shortcuts import get_object_or_404
 
 
 def index(request):
-    return HttpResponse("Index page")
+    return render(request, 'index.html')
+
+
+def about(request):
+    return render(request, 'about.html')
 
 
 def hello(request, username):
     return HttpResponse("<h1>Hello %s</h1>" % username)
 
 
-def about(request):
-    return HttpResponse("About")
-
-
 def projects(request):
     projects = list(Project.objects.values_list())
-    return JsonResponse(projects, safe=False)
+    return render(request, 'projects.html')
 
 
-def tasks(request, title):
-    task = get_object_or_404(Task, title=title)
-    return HttpResponse('task: %s ' % task.title)
+def tasks(request):
+    # task = get_object_or_404(Task, title=title)
+    return render(request, 'tasks.html')
