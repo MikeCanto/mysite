@@ -8,11 +8,17 @@ from django.shortcuts import get_object_or_404
 
 
 def index(request):
-    return render(request, 'index.html')
+    title = 'Django course!'
+    return render(request, 'index.html', {
+        'title': title
+    })
 
 
 def about(request):
-    return render(request, 'about.html')
+    username = 'Mike'
+    return render(request, 'about.html', {
+        'username': username
+    })
 
 
 def hello(request, username):
@@ -20,8 +26,12 @@ def hello(request, username):
 
 
 def projects(request):
-    projects = list(Project.objects.values_list())
-    return render(request, 'projects.html')
+    # projects = list(Project.objects.values_list())
+    projects = Project.objects.all()
+    return render(request, 'projects.html', {
+        'projects': projects
+
+    })
 
 
 def tasks(request):
