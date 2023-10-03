@@ -40,3 +40,5 @@ def tasks(request):
     return render(request, 'tasks.html', {
         'tasks': tasks
     })
+
+

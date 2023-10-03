@@ -10,6 +10,7 @@ urlpatterns = [
     path('projects/', views.projects),
     path('tasks/', views.tasks),
 
+
 ]
 
 # ME QUEDE EN EL MINUTO 1:38:13

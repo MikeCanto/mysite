@@ -6,23 +6,24 @@
 
 </head>
 <body>
-    <h1>Task </h1>
-    {% for task in tasks %}
-        <div>
-            {# note: this is using Jinja 2 #}
-            <h1>{% if task.done == False %} ❌ {% else %} ✅ {% endif %} {{ task.title }}</h1>
-            <p>{{ task.description }}</p>
-            <p>Project: {{ task.project.name }}</p>
-            <button>
-                Delete
-            </button>
-            <button>
-                &#x2705 Done
-            </button>
-        </div>
-
-
-    {% endfor %}
+    {% extends 'layouts/base.html' %}
+    {% block content %}
+        <h1 class="pt-10">Task </h1>
+        {% for task in tasks %}
+            <div>
+                {# note: this is using Jinja 2 #}
+                <h1>{% if task.done == False %} ❌ {% else %} ✅ {% endif %} {{ task.title }}</h1>
+                <p>{{ task.description }}</p>
+                <p>Project: {{ task.project.name }}</p>
+                <button>
+                    Delete
+                </button>
+                <button>
+                    &#x2705 Done
+                </button>
+            </div>
+        {% endfor %}
+    {% endblock %}
 
 </body>
 </html>

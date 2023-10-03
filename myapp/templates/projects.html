@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Projects</title>
-</head>
-<body>
-    <h1>Projects </h1>
-    {% for project in projects %}
-        <div>
-            <h1>{{ project.name }}</h1>
+
+    {% extends 'layouts/base.html' %}
+    {% block content %}
+
+        <div class="pt-10">
+        <h1>Projects</h1>
+        {% for project in projects %}
+            <div>
+                <h1>{{ project.name }}</h1>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
-</body>
-</html>
+
+
+    {% endblock %}
