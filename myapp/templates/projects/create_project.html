@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create project</title>
+</head>
+<body>
+    {% extends 'layouts/navbar.html' %}
+    {% block content %}
+        <h1 class="pt-10">Create a project</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button>
+                Save
+            </button>
+        </form>
+
+
+    {% endblock %}
+
+</body>
+</html>

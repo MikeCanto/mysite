@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Project, Task
-from .forms import CreateNewTask
+from .forms import CreateNewTask, CreateNewProject
 from django.shortcuts import get_object_or_404
 
 
@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 
 def index(request):
     title = 'Django course!'
-    return render(request, 'index.html', {
+    return render(request, './index.html', {
         'title': title
     })
 
@@ -29,7 +29,7 @@ def hello(request, username):
 def projects(request):
     # projects = list(Project.objects.values_list())
     projects = Project.objects.all()
-    return render(request, 'projects.html', {
+    return render(request, 'projects/projects.html', {
         'projects': projects
 
     })
@@ -38,14 +38,14 @@ def projects(request):
 def tasks(request):
     # task = get_object_or_404(Task, title=title)
     tasks = Task.objects.all()
-    return render(request, 'tasks.html', {
+    return render(request, 'tasks/tasks.html', {
         'tasks': tasks
     })
 
 
 def create_task(request):
     if  request.method == 'GET':
-        return render(request, 'create_task.html', {
+        return render(request, 'tasks/create_task.html', {
             'form': CreateNewTask()
         })
     else:
@@ -53,6 +53,13 @@ def create_task(request):
         return redirect('./')
 
 
-
-
-
+def create_project(request):
+    if request.method == 'GET':
+        return render(request, 'projects/create_project.html', {
+            'form': CreateNewProject()
+        })
+    else:
+        Project.objects.create(name=request.POST['name'])
+        return render(request, 'projects/create_project.html', {
+            'form': CreateNewProject()
+        })
