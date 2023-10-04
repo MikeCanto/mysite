@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'layouts/base.html' %}
+    {% block content %}
+
+        <h1 class="pt-10">Create a new task</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Save</button>
+
+
+        </form>
+    {% endblock %}
+</body>
+</html>

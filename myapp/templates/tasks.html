@@ -9,6 +9,7 @@
     {% extends 'layouts/base.html' %}
     {% block content %}
         <h1 class="pt-10">Task </h1>
+        <a href="/home/tasks/create" class="btn btn-primary shadow" role="button">Create task</a>
         {% for task in tasks %}
             <div>
                 {# note: this is using Jinja 2 #}
