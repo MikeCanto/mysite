@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top bounce animated navbar-shrink py-3 navbar-light" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/home/"><span>Remember me</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}"><span>Remember me</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
@@ -19,8 +19,8 @@
                                 Tasks
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/home/tasks">View tasks</a></li>
-                                <li><a class="dropdown-item" href="/home/tasks/create">Create tasks</a></li>
+                                <li><a class="dropdown-item" href="{% url 'tasks' %}">View tasks</a></li>
+                                <li><a class="dropdown-item" href="{% url 'create_task' %}">Create tasks</a></li>
                             </ul>
                         </div>
                     </li>
@@ -30,12 +30,12 @@
                                 Projects
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/home/projects">View projects</a></li>
-                                <li><a class="dropdown-item" href="/home/projects/create">Create project</a></li>
+                                <li><a class="dropdown-item" href="{% url 'projects' %}">View projects</a></li>
+                                <li><a class="dropdown-item" href="{% url 'create_project' %}">Create project</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/home/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                 </ul><a class="btn btn-primary shadow" role="button" href="signup.html">Login</a>
