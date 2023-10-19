@@ -44,7 +44,7 @@ def tasks(request):
 
 
 def create_task(request):
-    if  request.method == 'GET':
+    if request.method == 'GET':
         return render(request, 'tasks/create_task.html', {
             'form': CreateNewTask()
         })
